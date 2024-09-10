@@ -1,5 +1,10 @@
 import React from "react";
-
+import Time from "./Time";
+import StartButton from "./StartButton";
+import PauseButton from "./PauseButton";
+import ResetButton from "./ResetButton";
+import LapButton from "./LapButton";
+import Laps from "./Laps";
 function Stopwatch()
 {
     const[time,setTime]=React.useState(0);
@@ -47,21 +52,15 @@ function Stopwatch()
         <div>
             <h1>Stopwatch</h1>
             <div>
-                <h4>{time}</h4>
+                <h4><Time time={time}/></h4>
             </div>
             <div>
-                <button onClick={startStopwatch}>Start</button>
-                <button onClick={pause}>Pause/Stop</button>
-                {paused&&<button onClick={reset}>Reset</button>}
-                <button onClick={setLapArr}>Set lap</button>
+                <StartButton startStopwatch={startStopwatch} />
+                <PauseButton pause={pause} />
+                {paused && <ResetButton reset={reset} />}
+                <LapButton setLapArr={setLapArr}/>
             </div>
-            {laps.length>0 && <div>
-            <ol>
-            {laps.map((lap,index)=>
-                <li key={index}>{lap}</li>
-            )}
-            </ol>
-            </div>}
+            <Laps laps={laps} />
         </div>
     )
 }
