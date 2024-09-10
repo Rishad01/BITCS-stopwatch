@@ -5,6 +5,7 @@ import PauseButton from "./PauseButton";
 import ResetButton from "./ResetButton";
 import LapButton from "./LapButton";
 import Laps from "./Laps";
+import '../style.css';
 function Stopwatch()
 {
     const[time,setTime]=React.useState(0);
@@ -44,7 +45,8 @@ function Stopwatch()
     }
 
     const setLapArr=()=>{
-        const timer=`${Math.floor(time/360000)}:${Math.floor((time % 360000) / 6000)}:${Math.floor((time % 6000) / 100)}:${time%100}`;
+        const timer=`${Math.floor(time/360000).toString().padStart(2, '0')}:${Math.floor((time % 360000) / 6000).toString().padStart(2, '0')}:${Math.floor((time % 6000) / 100).toString().padStart(2, '0')}:${(time%100).toString().padStart(2, '0')}`;
+        console.log(typeof(timer));
         if(!laps.includes(timer))
         setLap([...laps,timer]);
     }
@@ -55,11 +57,11 @@ function Stopwatch()
             <div>
                 <h4><Time time={time}/></h4>
             </div>
-            <div>
+            <div className="centered">
                 <StartButton startStopwatch={startStopwatch} />
                 <PauseButton pause={pause} />
-                {paused && <ResetButton reset={reset} />}
                 <LapButton setLapArr={setLapArr}/>
+                {paused && <ResetButton reset={reset} />}
             </div>
             <Laps laps={laps} />
         </div>

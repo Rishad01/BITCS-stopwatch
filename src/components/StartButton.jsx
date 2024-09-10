@@ -1,10 +1,10 @@
 import React from "react";
-
+import '../style.css';
 function StartButton({startStopwatch})
 {
     return(
         <div>
-            <button onClick={startStopwatch}>Start</button>
+            <button className="button" onClick={startStopwatch}>Start</button>
         </div>
     );
 }

@@ -1,10 +1,10 @@
 import React from "react";
-
+import '../style.css';
 function ResetButton({reset})
 {
     return(
         <div>
-            <button onClick={reset}>Reset</button>
+            <button className="button" style={{backgroundColor:"red"}} onClick={reset}>Reset</button>
         </div>
     );
 }

@@ -1,10 +1,10 @@
 import React from "react";
-
+import '../style.css';
 function LapButton({setLapArr})
 {
     return(
         <div>
-            <button onClick={setLapArr}>Set lap</button>
+            <button className="button" onClick={setLapArr}>Set lap</button>
         </div>
     );
 }
