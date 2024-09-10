@@ -44,8 +44,9 @@ function Stopwatch()
     }
 
     const setLapArr=()=>{
-        if(!laps.includes(time))
-        setLap([...laps,time]);
+        const timer=`${Math.floor(time/360000)}:${Math.floor((time % 360000) / 6000)}:${Math.floor((time % 6000) / 100)}:${time%100}`;
+        if(!laps.includes(timer))
+        setLap([...laps,timer]);
     }
 
     return(
